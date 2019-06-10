@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/tool"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tool http://www.springframework.org/schema/tool/spring-tool.xsd">
+
+
+
+
+
+    <bean id = "parentTriangle" autowire = "byName" abstract = "true" class = "mainPackage.Triangle">
+
+
+
+    </bean>
+
+
+    <bean id = "PointC" class = "mainPackage.Point">
+
+        <qualifier value="circleRelated"/>
+        <property name="x" value="200"/>
+        <property name="y" value="300"/>
+
+
+    </bean>
+
+
+
+    <bean id = "triangle" scope = "prototype" class = "mainPackage.Triangle">
+        <property name="pointA" ref = "pointA" />
+
+        <property name="pointB">
+
+            <bean class = "mainPackage.Point">
+
+                <property name="y" value="500"/>
+                <property name="x" value="700"/>
+
+            </bean>
+
+
+        </property>
+
+
+    <property name="pointC" ref="PointC"/>
+
+
+    </bean>
+
+    <bean id = "pointA" class = "mainPackage.Point" >
+        <property name="x" value="200"/>
+
+        <property name="y" value = "${y}"/>
+
+
+    </bean>
+
+
+
+
+
+    <bean id="circle" class = "mainPackage.Circle" >
+
+      <property name="center" ref="PointC"/>
+    </bean>
+
+
+
+    <bean class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+        <property name="location" value="classpath:BeanPostP.properties"/>
+
+
+    </bean>
+
+
+
+</beans>
