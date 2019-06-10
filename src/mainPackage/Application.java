@@ -14,8 +14,15 @@ public class Application {
 //
 //        triangle.draw();
 
+        //       String message = context.getMessage("greationmessage", null, "Default Greetings", null);
+//
+//       System.out.println(message);
+
+
+
         Shape shape = (Shape) context.getBean("circle");
         shape.draw(); System.out.println(shape.getClass());
+
 
 
     }

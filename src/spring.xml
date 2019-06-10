@@ -14,18 +14,8 @@
     </bean>
 
 
-    <bean id = "PointC" class = "mainPackage.Point">
-
-        <qualifier value="circleRelated"/>
-        <property name="x" value="200"/>
-        <property name="y" value="300"/>
-
-
-    </bean>
-
-
-
     <bean id = "triangle" scope = "prototype" class = "mainPackage.Triangle">
+
         <property name="pointA" ref = "pointA" />
 
         <property name="pointB">
@@ -41,10 +31,26 @@
         </property>
 
 
-    <property name="pointC" ref="PointC"/>
+        <property name="pointC" ref="PointC"/>
 
 
     </bean>
+
+
+
+
+    <bean id = "PointC" class = "mainPackage.Point">
+
+        <qualifier value="circleRelated"/>
+        <property name="x" value="200"/>
+        <property name="y" value="300"/>
+
+
+    </bean>
+
+
+
+
 
     <bean id = "pointA" class = "mainPackage.Point" >
         <property name="x" value="200"/>
@@ -72,6 +78,32 @@
 
     </bean>
 
+    <!--<context:component-scan base-package = "mainPackage"/>-->
+        <!---->
+
+
+    <bean id = "messageSource" class = "org.springframework.context.support.ResourceBundleMessageSource">
+    <property name="basenames">
+
+        <list >
+
+            <value>myMessages</value>
+            <value>BeanPostP</value>
+
+
+        </list>
+
+    </property>
+        
+    </bean>
+
+
+    <!--<context:annotation-config  />-->
+    <!---->
+    <!--<context:component-scan base-package = "mainPackage"/>-->
+    <!---->
+
+    <bean class="mainPackage.MyEventListiner"/>
 
 
 </beans>
