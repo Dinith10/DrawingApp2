@@ -78,6 +78,9 @@
 
     </bean>
 
+
+    <bean class = "org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
     <!--<context:component-scan base-package = "mainPackage"/>-->
         <!---->
 
